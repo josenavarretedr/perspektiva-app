@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practicando Fetch</title>
+    <style>
+      body {
+        margin: 10%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f6bd20;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      {{message}}
+      <div>
+        <select v-model="DOC_ID_SELECTED">
+          <option disabled value="">Please select one</option>
+          <option v-for="(DOC_ID, index) in DOCS_ID" :key="index">
+            {{DOC_ID}}
+          </option>
+        </select>
+        <input
+          type="text"
+          name="numDocId"
+          id="inputNumDocId"
+          placeholder="Num_ Documento ID"
+          v-model="numDocId"
+        />
+        <button @click="buscar">Cargar</button>
+      </div>
+
+      <div v-if="currentUser !== null">
+        <h1>{{currentUser.NOMBRES}} - {{currentUser.APELIIDOS}}</h1>
+
+        <h2>Planes de negocio</h2>
+
+        <table class="default">
+          <tr>
+            <th scope="row">Módulo / Sesiones</th>
+            <th>Sesión 1</th>
+            <th>Sesión 2</th>
+            <th>Sesión 3</th>
+            <th>Sesión 4</th>
+          </tr>
+          <tr>
+            <th>Habilidades Blandas</th>
+            <td v-for="presence in arrHB">{{makeCuteArr(presence)}}</td>
+          </tr>
+          <tr>
+            <th>Educación Financiera</th>
+            <td v-for="presence in arrEF">{{makeCuteArr(presence)}}</td>
+          </tr>
+          <tr>
+            <th>Costos y Finanzas</th>
+            <td v-for="presence in arrCF">{{makeCuteArr(presence)}}</td>
+          </tr>
+          <tr>
+            <th>Administración de Empresas</th>
+            <td v-for="presence in arrAE">{{makeCuteArr(presence)}}</td>
+          </tr>
+          <tr>
+            <th>Marketing y Ventas</th>
+            <td v-for="presence in arrMK">{{makeCuteArr(presence)}}</td>
+          </tr>
+        </table>
+      </div>
+
+      {{avaibleCourses}}
+
+      <div v-for="curso in proxModulos" :key="curso.id">
+        <div v-if="avaibleCourses.includes(curso.id)">
+          <h1>{{curso.name}}</h1>
+          <h2>{{curso.id}}</h2>
+          <p>{{curso.profesor}}</p>
+        </div>
+      </div>
+
+
+      <div>
+        <h1>Estado en el programa</h1>
+        {{graduado}} - {{concurso}}
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <!-- <script src="./components/mensaje.js"></script> -->
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
