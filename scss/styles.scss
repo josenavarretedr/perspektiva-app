@@ -1,0 +1,190 @@
+
+$fucsia: #991a5e;
+$turquesa: #009cde;
+$azul: #004d80;
+$amarillo: #ff9301;
+$rojo: #ee220d;
+$azul-botones: #003462;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+
+@mixin borderRed {
+  border: solid 1px red !important;
+}
+
+@mixin formatoBtns {
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  font-size: 16px;
+}
+
+.homeMsg {
+
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .logo {
+    max-width: 400px;
+    margin: 15px 10px;
+    img {
+      width: 100%;
+    }
+  }
+  
+  .mensaje {
+    margin: 15px 10px;
+    h1{
+      font-weight: 300;
+      text-align: center;
+    }
+    h2 {
+      font-weight: 300;
+    }
+  }
+}
+
+.form-control{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  > * {
+    margin: 1%;
+    width: 200px;
+    height: 35px;
+    text-align: center;
+  }
+
+  button {
+    background-color: $turquesa;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: $azul;
+    }
+  }
+
+
+
+}
+
+.detalleConsulta{
+  width: 90%;
+  margin: 5px auto;
+
+  &-saludo {
+    span {
+      font-size: 1.5rem;
+    }
+  }
+  
+  &-asistencia {
+    margin: 20px auto;
+    width: 85%;
+    p{
+      font-weight: 500;
+    }
+    &-registro {
+      margin-top: 20px;
+      table-layout: fixed;
+      border-collapse: collapse;
+      font-size: 14px;
+      th, td {
+        padding: 8px 0;
+      }
+      thead {
+        th {
+          &:nth-child(1){
+            width: 30%;
+          }
+          &:nth-child(2),
+          &:nth-child(3),
+          &:nth-child(4),
+          &:nth-child(5){
+            width: 13%;
+          }
+        }
+      }
+      tbody {
+        tr{
+          th {
+            text-align: left;
+            font-weight: 400;
+          }
+          td {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  &-proxCursos {
+    width: 90%;
+    margin: 5px auto;
+    .nombreSeccion {
+      font-weight: 500;
+    }
+    &-card{
+      border: 1px solid $turquesa;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,.2);
+      max-width: 40%;
+      margin-top: 1.2rem; 
+      padding: 15px;
+      >* {
+        font-size: 14px;
+      }
+      .nombreCurso{
+        font-size: 18px;
+        text-align: center;
+      }
+      .descripcionCurso, .nombreProfesor{
+        font-weight: 300;
+        margin: 10px 0;
+      }
+      a{
+        text-decoration: none;
+        color: black;
+        &:hover {
+          color: $turquesa;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  body {
+    // background-color: red;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    // background-color: green;
+  }
+
+  
+}
+
+@media (min-width: 1024px) {
+  body {
+    // background-color: blue;
+  }
+}
+

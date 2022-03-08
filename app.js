@@ -9,6 +9,57 @@ const app = Vue.createApp({
       DOC_ID_SELECTED: '',
       numDocId: '',
       currentUser: null,
+      // currentUser: {
+      //   "N°": "127",
+      //   "APELIIDOS": "Martinez Carreño",
+      //   "NOMBRES": "Yordelis Celeste Tibisay",
+      //   "NACIONALIDAD": "Perú",
+      //   "CIUDAD_DIST": "San Martín de Porres",
+      //   "DIRECCION_EMPRENDIMIENTO": "Jr. El Chaco 1842 Chalet 2 Piso 2 Cuadra El Chaco, San Martin de Porres",
+      //   "EDAD": "22",
+      //   "DOC_ID": "DNI",
+      //   "NUM_DOC_ID": "49037241",
+      //   "GENERO": "Femenino",
+      //   "NUM_CEL": "912887978",
+      //   "EMAIL": "yordelismartinezcarreno@gmail.com",
+      //   "OCUPACION": "Empleado",
+      //   "ACTIVIDAD": "Alquiler de lavadora",
+      //   "ESTATUS_EMPRENDIMIENTO": "Negocio en marcha",
+      //   "PLN1": "2,5",
+      //   "PLN2": "2,5",
+      //   "PLN3": "2,5",
+      //   "PLN4": "2,5",
+      //   "PLN5": "2,5",
+      //   "PLN6": "2,5",
+      //   "PLN7": "",
+      //   "PLN8": "2,5",
+      //   "AS1": "1",
+      //   "AS2": "1",
+      //   "AS3": "1",
+      //   "ASESOR": "Raúl Málaga",
+      //   "PLN_DOC": "Si",
+      //   "HB1": "2,5",
+      //   "HB2": "2,5",
+      //   "HB3": "2,5",
+      //   "HB4": "2,5",
+      //   "EF1": "2,5",
+      //   "EF2": "2,5",
+      //   "EF3": "2,5",
+      //   "EF4": "2,5",
+      //   "CF1": "2,5",
+      //   "CF2": "2,5",
+      //   "CF3": "2,5",
+      //   "CF4": "2,5",
+      //   "TOTAL HORAS \n(CC.CC)": "10,00",
+      //   "AE1": "",
+      //   "AE2": "",
+      //   "AE3": "",
+      //   "AE4": "",
+      //   "MK1": "2,5",
+      //   "MK2": "2,50",
+      //   "MK3": "2,50",
+      //   "MK4": null
+      // },
       graduado: false,
       concurso: false,
       arrHB: [],
@@ -189,6 +240,19 @@ const app = Vue.createApp({
       this.arrPLN = [];
       this.arrAS = [];
       this.avaibleCourses = [];
+    }
+  },
+  computed: {
+    bienvenide(){
+      if (this.currentUser !== null) {
+        if(this.currentUser.GENERO === 'Femenino') return 'Bienvenida';
+        else return 'Bienvenido'
+      } else return 'Bienvenide'
+    },
+    nombreMostrar(){
+      let name = this.currentUser.NOMBRES.split(" ")[0];
+      let lastName = this.currentUser.APELIIDOS.split(" ")[0];
+      return name + ' ' + lastName
     }
   }
 })
