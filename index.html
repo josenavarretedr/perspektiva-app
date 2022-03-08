@@ -89,31 +89,33 @@
 
         <div class="detalleConsulta-proxCursos">
           <p class="nombreSeccion">Qué módulos te toca llevar</p>
-
-          <div v-for="curso in proxModulos" :key="curso.id">
-            <div
-              v-if="avaibleCourses.includes(curso.id)"
-              class="detalleConsulta-proxCursos-card"
-            >
-              <p class="nombreCurso">{{curso.name}}</p>
-              <span class="nombreProfesor">
-                <i class="ri-user-line"></i>
-                {{curso.profesor}}</span
-              ><br />
-              <a href="#!">
-                <i class="ri-links-line"></i>
-                Enlace de Zoom
-              </a>
-              <p class="dias">
-                <i class="ri-time-line"></i>
-                {{curso.dias}}
-              </p>
-              <p class="horarios">
-                <i class="ri-calendar-check-line"></i>
-                De {{curso.horario}}
-              </p>
+          <div class="detalleConsulta-proxCursos-parent">
+            <div v-for="curso in proxModulos" :key="curso.id" class="detalleConsulta-proxCursos-parent-2">
+              <div
+                v-if="avaibleCourses.includes(curso.id)"
+                class="detalleConsulta-proxCursos-parent-card"
+              >
+                <p class="nombreCurso">{{curso.name}}</p>
+                <span class="nombreProfesor">
+                  <i class="ri-user-line"></i>
+                  {{curso.profesor}}</span
+                ><br />
+                <a href="#!">
+                  <i class="ri-links-line"></i>
+                  Enlace de Zoom
+                </a>
+                <p class="dias">
+                  <i class="ri-time-line"></i>
+                  {{curso.dias}}
+                </p>
+                <p class="horarios">
+                  <i class="ri-calendar-check-line"></i>
+                  De {{curso.horario}}
+                </p>
+              </div>
             </div>
           </div>
+          
         </div>
 
         <div class="detalleConsulta-estado">

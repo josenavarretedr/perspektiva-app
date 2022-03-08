@@ -69,12 +69,21 @@ const app = Vue.createApp({
       arrMK: [],
       arrPLN: [],
       arrAS: [],
+      // avaibleCourses: ['EF','AE','HB'],
       avaibleCourses: [],
       proxModulos: [
         {
           id: 'HB',
           name: 'Habilidades blandas',
           profesor: 'Jose navarrete',
+          link: 'http://www.google.com',
+          dias: ['Lunes', 'Miercoles', 'Jueves'],
+          horario: '7pm a 9pm'
+        },
+        {
+          id: 'PLN',
+          name: 'PLanes de Negocio',
+          profesor: 'Jose navarrete [Plan]',
           link: 'http://www.google.com',
           dias: ['Lunes', 'Miercoles', 'Jueves'],
           horario: '7pm a 9pm'
