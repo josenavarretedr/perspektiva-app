@@ -179,12 +179,12 @@ body {
     .detalleConsulta {
       &-proxCursos {
         &-parent {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: space-around;
+          // display: flex;
+          // flex-direction: row;
+          // flex-wrap: wrap;
+          // justify-content: space-around;
           &-2 {
-            // max-width: 45%;
+            max-width: 70%;
           }
         }
       }
@@ -195,6 +195,15 @@ body {
 @media (min-width: 768px) {
   body {
     background-color: green;
+    .detalleConsulta {
+      &-proxCursos {
+        &-parent {
+          &-2 {
+            max-width: 40%;
+          }
+        }
+      }
+    }
   }
 }
 
