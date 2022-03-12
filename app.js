@@ -140,35 +140,35 @@ const app = Vue.createApp({
 
       this.currentUser = currentUser;
 
-      this.makeArrs('arrHB',currentUser.HB1,currentUser.HB2,currentUser.HB3,currentUser.HB4);
-      
-      this.makeArrs('arrEF',currentUser.EF1,currentUser.EF2,currentUser.EF3,currentUser.EF4);
+      this.makeArrs('arrHB', currentUser.HB1, currentUser.HB2, currentUser.HB3, currentUser.HB4);
 
-      this.makeArrs('arrCF',currentUser.CF1,currentUser.CF2,currentUser.CF3,currentUser.CF4);
+      this.makeArrs('arrEF', currentUser.EF1, currentUser.EF2, currentUser.EF3, currentUser.EF4);
 
-      this.makeArrs('arrAE',currentUser.AE1,currentUser.AE2,currentUser.AE3,currentUser.AE4);
+      this.makeArrs('arrCF', currentUser.CF1, currentUser.CF2, currentUser.CF3, currentUser.CF4);
 
-      this.makeArrs('arrMK',currentUser.MK1,currentUser.MK2,currentUser.MK3,currentUser.MK4);
+      this.makeArrs('arrAE', currentUser.AE1, currentUser.AE2, currentUser.AE3, currentUser.AE4);
 
-      this.makeArrs('arrPLN', currentUser.PLN1,currentUser.PLN2,currentUser.PLN3,currentUser.PLN4, currentUser.PLN5,currentUser.PLN6,currentUser.PLN7,currentUser.PLN8)
+      this.makeArrs('arrMK', currentUser.MK1, currentUser.MK2, currentUser.MK3, currentUser.MK4);
 
-      this.makeArrs('arrAS', currentUser.AS1,currentUser.AS2,currentUser.AS3)
+      this.makeArrs('arrPLN', currentUser.PLN1, currentUser.PLN2, currentUser.PLN3, currentUser.PLN4, currentUser.PLN5, currentUser.PLN6, currentUser.PLN7, currentUser.PLN8)
+
+      this.makeArrs('arrAS', currentUser.AS1, currentUser.AS2, currentUser.AS3)
 
       this.proxMod()
 
       this.estadoEmprendimiento()
     },
 
-    makeArrs(nameArr,a,b,c,d,e,f,g,h){
+    makeArrs(nameArr, a, b, c, d, e, f, g, h) {
       let inicialArr = []
       let midArr = []
-      if(e){
-        inicialArr = [a,b,c,d,e,f,g,h];
+      if (e) {
+        inicialArr = [a, b, c, d, e, f, g, h];
       } else {
-        inicialArr = [a,b,c,d]
+        inicialArr = [a, b, c, d]
       }
-      for(let i = 0; i < inicialArr.length; i++){
-        if(inicialArr[i] === '' || inicialArr[i] === null || inicialArr[i] === undefined){
+      for (let i = 0; i < inicialArr.length; i++) {
+        if (inicialArr[i] === '' || inicialArr[i] === null || inicialArr[i] === undefined) {
           midArr.push(false);
         } else {
           midArr.push(true);
@@ -177,69 +177,69 @@ const app = Vue.createApp({
 
       this[nameArr] = midArr;
     },
-    makeCuteArr(e){
-      if(e === true){
+    makeCuteArr(e) {
+      if (e === true) {
         return '✅'
       } else {
         return '❌'
       }
     },
-    proxMod(){
-      if (this.arrHB.filter(Boolean).length < 3){
+    proxMod() {
+      if (this.arrHB.filter(Boolean).length < 3) {
         this.avaibleCourses.push('HB')
-      } else if (this.arrPLN.filter(Boolean).length >=6 && this.arrHB.filter(Boolean).length >=3 ){
-          
-          switch (this.arrEF.filter(Boolean).length <= 3){
-            case true:
-              this.avaibleCourses.push('EF');
-              break;
-            case false:
-              break;
-          }
+      } else if (this.arrPLN.filter(Boolean).length >= 6 && this.arrHB.filter(Boolean).length >= 3) {
 
-          switch (this.arrCF.filter(Boolean).length <= 3){
-            case true:
-              this.avaibleCourses.push('CF');
-              break;
-            case false:
-              break;
-          }
+        switch (this.arrEF.filter(Boolean).length <= 3) {
+          case true:
+            this.avaibleCourses.push('EF');
+            break;
+          case false:
+            break;
+        }
 
-          switch (this.arrAE.filter(Boolean).length <= 3){
-            case true:
-              this.avaibleCourses.push('AE');
-              break;
-            case false:
-              break;
-          }
+        switch (this.arrCF.filter(Boolean).length <= 3) {
+          case true:
+            this.avaibleCourses.push('CF');
+            break;
+          case false:
+            break;
+        }
 
-          switch (this.arrMK.filter(Boolean).length <= 3){
-            case true:
-              this.avaibleCourses.push('MK');
-              break;
-            case false:
-              break;
-          }
+        switch (this.arrAE.filter(Boolean).length <= 3) {
+          case true:
+            this.avaibleCourses.push('AE');
+            break;
+          case false:
+            break;
+        }
+
+        switch (this.arrMK.filter(Boolean).length <= 3) {
+          case true:
+            this.avaibleCourses.push('MK');
+            break;
+          case false:
+            break;
+        }
 
       } else {
         this.avaibleCourses.push('PLN')
       }
     },
-    estadoEmprendimiento(){
-      switch (!this.avaibleCourses.includes('HB') && !this.avaibleCourses.includes('PLN')){
+    estadoEmprendimiento() {
+      switch (!this.avaibleCourses.includes('HB') && !this.avaibleCourses.includes('PLN')) {
         case true:
           this.graduado = true;
           break;
       }
 
-      switch (this.avaibleCourses.length === 0){
+      switch (this.avaibleCourses.length === 0) {
         case true:
           this.concurso = true;
           break;
       }
 
     },
-    clearArrs(){
+    clearArrs() {
       this.currentUser = null;
       this.arrHB = [];
       this.arrEF = [];
@@ -252,13 +252,13 @@ const app = Vue.createApp({
     }
   },
   computed: {
-    bienvenide(){
+    bienvenide() {
       if (this.currentUser !== null) {
-        if(this.currentUser.GENERO === 'Femenino') return 'Bienvenida';
+        if (this.currentUser.GENERO === 'Femenino') return 'Bienvenida';
         else return 'Bienvenido'
       } else return 'Bienvenide'
     },
-    nombreMostrar(){
+    nombreMostrar() {
       let name = this.currentUser.NOMBRES.split(" ")[0];
       let lastName = this.currentUser.APELIIDOS.split(" ")[0];
       return name + ' ' + lastName
